@@ -1,4 +1,4 @@
-import NextFooter from "@/components/layout/NextFooter";
+import { NextFooter } from "@/components/index";
 import BlogNavbar from "./_components/BlogNavbar";
 
 const blogLayout = ({ children }: { children: React.ReactNode }) => {

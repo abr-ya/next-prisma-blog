@@ -1,10 +1,16 @@
 import { getAllPosts } from "../_actions/getPosts";
+import BlogCard from "../_components/BlogCard";
 
 const PostsPage = async () => {
   const allPosts = await getAllPosts();
-  console.log(allPosts);
 
-  return <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">Hello from PostsPage</main>;
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {allPosts.map((item) => (
+        <BlogCard data={item} key={item.id} />
+      ))}
+    </div>
+  );
 };
 
 export default PostsPage;
