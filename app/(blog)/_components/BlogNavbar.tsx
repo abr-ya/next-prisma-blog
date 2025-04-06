@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const BlogNavbar = () => {
@@ -26,7 +27,9 @@ const BlogNavbar = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-4">todo: UserBlock</div>
+      <div className="flex items-center gap-4">
+        todo: <Button>Login</Button>
+      </div>
     </nav>
   );
 };
