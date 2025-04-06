@@ -5,7 +5,7 @@ const blogLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <BlogNavbar />
-      <main className="flex h-[calc(100vh-96px)] flex-col">{children}</main>
+      <main className="flex h-[calc(100vh-100px)] flex-col">{children}</main>
       <NextFooter />
     </>
   );
