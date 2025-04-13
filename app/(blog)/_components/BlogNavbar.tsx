@@ -1,7 +1,28 @@
-import { Button } from "@/components/index";
+"use client";
+
 import Link from "next/link";
+import { RegisterLink, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { type KindeUser, useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+
+import { buttonVariants } from "@/components/ui/button";
 
 const BlogNavbar = () => {
+  const { getUser } = useKindeBrowserClient();
+  const user = getUser();
+
+  const renderUserBlock = (user: KindeUser<Record<string, string>> | null) =>
+    user ? (
+      <>
+        <p>{user.given_name}</p>
+        <LogoutLink className={buttonVariants({ variant: "secondary" })}>Logout</LogoutLink>
+      </>
+    ) : (
+      <>
+        <LoginLink className={buttonVariants()}>Login</LoginLink>
+        <RegisterLink className={buttonVariants({ variant: "secondary" })}>Sign up</RegisterLink>
+      </>
+    );
+
   return (
     <header>
       <nav className="py-5 flex items-center justify-between">
@@ -28,9 +49,7 @@ const BlogNavbar = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
-          todo: <Button>Login</Button>
-        </div>
+        <div className="flex items-center gap-4">{renderUserBlock(user)}</div>
       </nav>
     </header>
   );
