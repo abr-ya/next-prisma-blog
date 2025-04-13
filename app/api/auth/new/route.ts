@@ -35,5 +35,5 @@ export async function GET() {
     dbUser = await prisma.user.create({ data: newUser });
   }
 
-  return redirect("/");
+  return redirect("/dashboard");
 }
