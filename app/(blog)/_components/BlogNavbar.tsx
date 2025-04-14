@@ -4,7 +4,7 @@ import Link from "next/link";
 import { RegisterLink, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { type KindeUser, useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/index";
 
 const BlogNavbar = () => {
   const { getUser } = useKindeBrowserClient();
