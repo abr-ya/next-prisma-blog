@@ -2,12 +2,31 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Link from "next/link";
 
 import { buttonVariants } from "@/components/index";
+import { getPostsByUser } from "../_actions/getPosts";
+import { BlogCard, CardsGrid } from "../_components";
 
 const DashboardPage = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  console.log(user?.email);
+  let data = null;
+  if (user) {
+    data = await getPostsByUser(user.id);
+    console.log("user's post count", data.length);
+  } else {
+    console.log("ooooops!.. i can't get user id!(");
+  }
+
+  const renderContent = () =>
+    data ? (
+      <CardsGrid>
+        {data.map((item) => (
+          <BlogCard data={item} key={item.id} />
+        ))}
+      </CardsGrid>
+    ) : (
+      <p>no posts</p>
+    );
 
   return (
     <div>
@@ -18,10 +37,7 @@ const DashboardPage = async () => {
           Create Post
         </Link>
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        Hello from DashboardPage == todo: My Posts
-      </div>
+      {renderContent()}
     </div>
   );
 };

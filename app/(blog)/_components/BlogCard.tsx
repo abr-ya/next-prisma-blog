@@ -1,13 +1,22 @@
-import { IBlogPost } from "../_interfaces/blog.interfaces";
+import { IBlogPostBase, IBlogPostExtended } from "../_interfaces/blog.interfaces";
 
 interface IBlogCard {
-  data: IBlogPost;
+  data: IBlogPostBase | IBlogPostExtended;
 }
 
-const BlogCard = ({ data }: IBlogCard) => {
-  console.log(data);
+const BlogCard = ({ data: { title, ...restData } }: IBlogCard) => {
+  console.log(title);
 
-  return <div>BlogCard == {data.title}</div>;
+  let isExtendedCard = false;
+  let user;
+  if ("user" in restData) {
+    isExtendedCard = true;
+    user = restData.user;
+  }
+
+  if (isExtendedCard) console.log(user?.id);
+
+  return <div>BlogCard == {title}</div>;
 };
 
 export default BlogCard;

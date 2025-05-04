@@ -18,3 +18,16 @@ export const getAllPosts = async () => {
 
   return data;
 };
+
+export const getPostsByUser = async (userId: string) => {
+  const data = await prisma.blogPost.findMany({
+    where: {
+      authorId: userId,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return data;
+};
