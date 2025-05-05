@@ -28,6 +28,7 @@ const BlogCard = ({ data: { content, createdAt, id, imageUrl, title, ...restData
             src={imageUrl || "https://i.pinimg.com/736x/e4/61/5d/e4615d8c8eb5c636f1938a64a7091e24.jpg"}
             alt="Image for blog"
             fill
+            sizes="33vw"
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
