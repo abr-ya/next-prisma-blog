@@ -1,3 +1,4 @@
+import { unstable_noStore as noStore } from "next/cache";
 import { prisma } from "@/app/utils/prisma";
 import { notFound } from "next/navigation";
 
@@ -15,6 +16,7 @@ const selectAllFields = {
 };
 
 export const getAllPosts = async () => {
+  noStore();
   const data = await prisma.blogPost.findMany({ select: selectAllFields });
 
   return data;
