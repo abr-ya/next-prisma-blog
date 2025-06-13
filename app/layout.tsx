@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
   <html lang="en">
-    <body className={`${geistSans.variable} ${geistMono.variable} antialiased mx-auto px-4 sm:px-6 lg:px-8`}>
+    <body className={`${geistSans.variable} ${geistMono.variable} antialiased mx-auto md:px-0 sm:px-4 lg:px-8`}>
       <KindeAuthProvider>{children}</KindeAuthProvider>
     </body>
   </html>

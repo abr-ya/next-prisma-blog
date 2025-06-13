@@ -24,7 +24,7 @@ const BlogNavbar = () => {
     );
 
   return (
-    <header>
+    <header className="px-4">
       <nav className="py-5 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/">

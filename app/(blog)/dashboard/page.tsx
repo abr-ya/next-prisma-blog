@@ -12,7 +12,7 @@ const DashboardPage = async () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-4 px-4">
         <h2 className="text-xl font-medium">My Blog Posts</h2>
 
         <Link className={buttonVariants()} href="/dashboard/create">

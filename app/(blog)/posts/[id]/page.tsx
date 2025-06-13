@@ -39,7 +39,7 @@ const DetailPage: FC<IDetailPage> = async ({ params }) => {
       {/* Content */}
       <Card>
         <CardContent>
-          <p className="text-gray-700">{post.content}</p>
+          <p className="text-gray-700 whitespace-pre-line">{post.content}</p>
         </CardContent>
       </Card>
     </div>
